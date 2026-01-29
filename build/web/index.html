@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Generador de CURP</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Generador de CURP" />
+    <meta name="author" content="Pablo Giovanni Gutiérrez Romo" />
+    <link rel="stylesheet" href="style/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="style/bootstrap/css/bootstrap-grid.css" />
+    <link rel="stylesheet" href="style/bootstrap/css/bootstrap-utilities.css" />
+    <link rel="stylesheet" href="style/bootstrap/css/bootstrap-utilities.rtl.css" />
+  </head>
+
+  <body class="bg-black">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="text-light text-center mb-5 mt-2">Generador de CURP</h1>
+        </div>
+      </div>
+    </div>
+      
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-9">
+
+          <div class="card border-light bg-transparent mb-5">
+            
+            <div class="card-header bg-transparent border-light">
+              <h4 class="text-light mb-0">Datos de la persona:</h4>
+            </div>
+            
+            <div class="card-body">
+                <div id="curpLayout"> 
+                
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="mb-3">
+                          <label for="primernombre" class="form-label text-light">Primer Nombre:</label>
+                          <input type="text" class="form-control" id="txtPrimerNombre">
+                        </div>
+                        <div class="mb-3">
+                          <label for="segundoNombre" class="form-label text-light">Segundo Nombre:</label>
+                          <input type="text" class="form-control" id="txtSegundoNombre">
+                        </div>
+                        <div class="mb-3">
+                          <label for="apellidoPaterno" class="form-label text-light">Apellido Paterno:</label>
+                          <input type="text" class="form-control" id="txtApellidoPaterno">
+                        </div>
+                        <div class="mb-3">
+                          <label for="apellidoMaterno" class="form-label text-light">Apellido Materno:</label>
+                          <input type="text" class="form-control" id="txtApellidoMaterno">
+                        </div>
+                      </div>
+                      
+                      <div class="col-md-6">
+                        <div class="mb-4">
+                          <label class="form-label text-light">CURP Generada:</label>
+                          <div class="form-control curp-generada-display" id="txtCurpResultado">
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                          <label for="cmbGenero" class="text-light">Genero:</label>
+                          <select id="cmbGenero" class="form-select">
+                            <option value="H">H</option>
+                            <option value="M">M</option>
+                          </select>
+                        </div>
+                        
+                        <div class="mb-4">
+                          <label class="form-label text-light">Fecha de Nacimiento</label>
+                          <div class="row">
+                            <div class="col-4">
+                              <input type="text" class="form-control" id="txtDia" placeholder="Día" maxlength="2">
+                            </div>
+                            <div class="col-4">
+                              <input type="text" class="form-control" id="txtMes" placeholder="Mes" maxlength="2">
+                            </div>
+                            <div class="col-4">
+                              <input type="text" class="form-control" id="txtAnio" placeholder="Año" maxlength="4">
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="mb-4">
+                          <label for="entidad" class="form-label text-light">Entidad (2 Dígitos):</label>
+                          <div class="col-4">
+                            <select name="estado" id="cmbEntidad">
+                              <option value="">Selecciona una opción...</option>
+                              <option value="AS">Aguascalientes</option>
+                              <option value="BC">Baja California</option>
+                              <option value="BS">Baja California Sur</option>
+                              <option value="CC">Campeche</option>
+                              <option value="CS">Chiapas</option>
+                              <option value="CH">Chihuahua</option>
+                              <option value="DF">Distrito Federal</option>
+                              <option value="CL">Coahuila</option>
+                              <option value="CM">Colima</option>
+                              <option value="DG">Durango</option>
+                              <option value="GT">Guanajuato</option>
+                              <option value="GR">Guerrero</option>
+                              <option value="HG">Hidalgo</option>
+                              <option value="JC">Jalisco</option>
+                              <option value="MC">México</option>
+                              <option value="MN">Michoacán</option>
+                              <option value="MS">Morelos</option>
+                              <option value="NT">Nayarit</option>
+                              <option value="NL">Nuevo León</option>
+                              <option value="OC">Oaxaca</option>
+                              <option value="PL">Puebla</option>
+                              <option value="QT">Querétaro</option>
+                              <option value="QR">Quintana Roo</option>
+                              <option value="SP">San Luis Potosí</option>
+                              <option value="SL">Sinaloa</option>
+                              <option value="SR">Sonora</option>
+                              <option value="TC">Tabasco</option>
+                              <option value="TS">Tamaulipas</option>
+                              <option value="TL">Tlaxcala</option>
+                              <option value="VZ">Veracruz</option>
+                              <option value="YN">Yucatán</option>
+                              <option value="ZS">Zacatecas</option>
+                              <option value="NE">Nacido Extranjero</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="d-flex gap-3 justify-content-start mt-4">
+                      <button type="button" class="btn btn-primary" onclick="realizarCurp();">Generar Curp</button>
+                      <button type="button" class="btn btn-secondary" onclick="limpiarCampos();">Limpiar Campos</button>
+                    </div>
+                </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="style/bootstrap/js/bootstrap.js"></script>
+    <script src="style/bootstrap/js/bootstrap.bundle.js"></script>
+    
+    <script src="js/generadora_curp.js"></script>
+    </body>
+</html>
